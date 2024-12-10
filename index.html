@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician ANRE</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            margin-top: 100px;
+            background: #c3c2c2;
+        }
+
+        .header {
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('header-background.avif') no-repeat center center/cover;
+
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            max-width: 400px;
+        }
+
+        .header .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: rgb(110, 110, 110, 40%);;
+            border-radius: 30px;
+            padding: 20px;
+        }
+
+        .header .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between the icon and the text */
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .header .contact-info .phone {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .services {
+            background: #e8f5e9;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .services ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .services ul li {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px 15px 15px 50px; /* Add left padding for the icon */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            color: #555;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .services ul li:before {
+            content: "";
+            position: absolute;
+            top: 50%; /* Center the icon vertically */
+            left: 15px; /* Adjust horizontal positioning */
+            transform: translateY(-50%); /* Offset for proper centering */
+            width: 24px; /* Icon width */
+            height: 24px; /* Icon height */
+            background: url('service.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .services ul li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-solutions {
+            background: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .top-solutions h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .top-solutions .solution-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .top-solutions .card img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .top-solutions .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-solutions .card:hover{
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-solutions .card .card-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #27ae60;
+        }
+
+        .testimonials {
+            background: #e8f5e9;
+            padding: 40px 20px;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .testimonials .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .testimonials .testimonial {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonials .testimonial .name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .testimonials .testimonial .feedback {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .testimonials .testimonial .rating {
+            display: inline-block;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #27ae60; /* Green for high ratings */
+            border-radius: 8px;
+            margin-top: 10px;
+            text-align: center;
+            float: right; /* Align it to the top-right of the testimonial box */
+        }
+
+
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<header class="header">
+    <h1>Electrician Autorizat ANRE</h1>
+    <div class="contact-info">
+        <p><img src="location.png" width="20" height="20">Bucuresti - sector 3</p>
+        <p><img src="man.png" width="20" height="20">Electrician Autorizat cu experiența de peste 25 de ani</p>
+        <p class="phone"><img src="wapp.png" width="20" height="20">0726.158.226</p>
+    </div>
+</header>
+
+<section class="services">
+    <h2>Servicii</h2>
+    <ul>
+        <li>Montaj tablourile electrice automate</li>
+        <li>Montaj corpurilor de iluminat</li>
+        <li>Montaj prizelor electrice, întrerupătoarelor, protecțiilor electrice</li>
+        <li>Circuite electrice suplimentare pentru cuptoare electrice, plite</li>
+
+        <li>Soluții tehnice ideale pentru o protecție electrică corespunzătoare</li>
+        <li>Verificarea instalațiilor electrice</li>
+    </ul>
+</section>
+
+<section class="top-solutions">
+    <h2>Alegeți-ne pentru Soluții Electrice de Top</h2>
+    <p>Când vine vorba de nevoile electrice ale locuinței sau afacerii dumneavoastră, aveți nevoie de un profesionist de încredere.
+        Cu peste 25 de ani de experiență, electricianul autorizat ANRE Florin Dumitrache vă oferă servicii electrice rapide, sigure și conforme normelor în vigoare,
+        punând accent pe calitate și satisfacție.
+    </p>
+    <div class="solution-details">
+        <div class="card">
+            <img src="fast.jpeg" alt="Solution Image" style="width:100%; border-radius:8px; margin-bottom:10px;">
+            <p class="card-title">Intervenții Rapide și Fiabile:</p>
+            <p>Asigurăm un ciclu complet de asistență realizată prompt și eficient.</p>
+        </div>
+        <div class="card">
+            <img src="money.jpg" alt="Solution Image" style="width:100%; border-radius:8px; margin-bottom:10px;">
+            <p class="card-title">Tarife Adecvate:</p>
+            <p>Avem prețuri foarte mici pentru modernizarea instalațiilor electrice.</p>
+        </div>
+        <div class="card">
+            <img src="transparency.jpeg" alt="Solution Image" style="width:100%; border-radius:8px; margin-bottom:10px;">
+            <p class="card-title">Transparență și Onestitate:</p>
+            <p>Comunăm clar fiecare etapă și fiecare intervenție, oferindu-vă vizibilitate totală asupra lucrărilor efectuate și a costurilor implicate.</p>
+        </div>
+        <div class="card">
+            <img src="service1.jpg" alt="Solution Image" style="width:100%; border-radius:8px; margin-bottom:10px;">
+            <p class="card-title">Servicii de Încredere:</p>
+            <p>De la montarea corpurilor de iluminat, tablourilor electrice automate și prize, la verificări și mentenanță a instalațiilor, oferim o gamă largă de soluții pentru toate nevoile electrice..</p>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2>Nu ne credeți doar pe cuvânt</h2>
+    <div class="testimonial-grid">
+        <div class="testimonial">
+            <div class="rating">5.0</div>
+            <p class="name">Mihai Popescu<br><small>Proprietar locuință</small></p>
+            <p class="feedback">Intervenție rapidă și eficientă. Am avut o problemă electrică la instalația din bucătărie și Marius Șerban a intervenit prompt. A identificat rapid sursa defecțiunii și a remediat-o fără dificultăți. Recomand cu încredere.</p>
+        </div>
+        <div class="testimonial">
+            <div class="rating">5.0</div>
+            <p class="name">Ioana Ionescu<br><small>Administrator imobil</small></p>
+            <p class="feedback">Transparență și corectitudine. Serviciile prestate mi-au depășit așteptările. Am primit explicații clare despre costuri și pașii ce urmau să fie efectuați, fără surprize neplăcute. Foarte mulțumită!</p>
+        </div>
+        <div class="testimonial">
+            <div class="rating">5.0</div>
+            <p class="name">Alexandru Marin<br><small>Proprietar apartament</small></p>
+            <p class="feedback">Comunicare excelentă și profesionalism. Colaborarea cu domnul Șerban a fost ireproșabilă, de la stabilirea programării și până la rezolvarea completă a problemei. A fost atent la detalii și mi-a oferit soluții personalizate.</p>
+        </div>
+        <div class="testimonial">
+            <div class="rating">5.0</div>
+            <p class="name">Elena Badea<br><small>Deținător spațiu comercial</small></p>
+            <p class="feedback">Calitate și seriozitate la superlativ. Aveam nevoie de circuite suplimentare pentru aparatele din magazin și lucrarea a fost executată ireproșabil. Totul funcționează perfect, iar nivelul de profesionalism m-a convins să apelez în continuare la aceste servicii.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>Florin Dumitrache</p>
+    <p>Contact Info: <a href="tel:0726158226">0726.158.226</a> | <a href="mailto:florin_info@yahoo.com">florin_info@yahoo.com</a></p>
+</footer>
+</body>
+</html>
